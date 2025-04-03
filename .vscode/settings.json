@@ -1,0 +1,124 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "prettier.requireConfig": false,
+  "prettier.printWidth": 80,
+  "prettier.useTabs": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.bracketSpacing": true,
+  "prettier.arrowParens": "always",
+  "prettier.endOfLine": "lf",
+  
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  "code-runner.preserveFocus": false,
+  "editor.peekWidgetDefaultFocus": "tree",
+  "editor.renderControlCharacters": true,
+  "editor.renderLineHighlight": "line",
+  "diffEditor.codeLens": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.bracketPairsHorizontal": "active",
+  "editor.colorDecorators": true,
+  "editor.language.colorizedBracketPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  "editor.matchBrackets": "always",
+  "editor.tabCompletion": "on",
+  "editor.wrappingIndent": "same",
+  "css.styleSheets": ["src/**/*.css"],
+  "editor.renderWhitespace": "all",
+  "editor.fontFamily": "operator mono lig",
+  "editor.fontLigatures": true,
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 14,
+  "editor.lineNumbers": "off",
+  "explorer.confirmDragAndDrop": false,
+  "editor.wordWrap": "on",
+  "explorer.confirmDelete": false,
+  "reactSnippets.settings.importReactOnTop": false,
+  "editor.cursorBlinking": "expand",
+  "editor.find.cursorMoveOnType": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.iconTheme": "material-icon-theme",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.accessibilitySupport": "off",
+  "terminal.integrated.env.windows": {},
+  "git.autofetch": true,
+  "workbench.statusBar.visible": false,
+  "window.menuBarVisibility": "compact",
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "window.zoomLevel": 2,
+  "workbench.activityBar.location": "hidden",
+
+  // Integrated terminal enhancements
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.scrollback": 10000,
+
+  // Error and linting settings
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  // File explorer settings
+  "explorer.compactFolders": false,
+  "explorer.autoReveal": true,
+  "explorer.openEditors.visible": 10,
+
+  // Git settings
+  "git.confirmSync": false,
+  "git.autorefresh": true,
+  "git.enableSmartCommit": true,
+
+  // IntelliSense and autocomplete settings
+  "editor.suggestSelection": "first",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.parameterHints.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+
+  // Debugging settings
+  "debug.inlineValues": true,
+  "debug.console.fontSize": 14,
+
+  // Performance optimization
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+
+  // Auto-close and auto-rename tags for HTML and JSX
+  "auto-rename-tag.activationOnLanguage": ["html", "javascriptreact", "typescriptreact"],
+  "auto-close-tag.activationOnLanguage": ["html", "xml", "javascriptreact", "typescriptreact"]
+}
