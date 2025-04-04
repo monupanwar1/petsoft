@@ -3,7 +3,7 @@ import H1 from "@/components/h1";
 export default function Branding() {
   return (
     <section>
-      <div className="flex text-white py-8 items-center justify-center">
+      <div className="flex flex-col text-white py-8 items-center justify-center">
         <H1>
           Pet <span className="font-semibold">Soft</span>
         </H1>
