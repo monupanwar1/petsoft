@@ -1,5 +1,9 @@
 import Stats from '@/components/stats';
 import Branding from './branding';
+import ContentBlock from '@/components/content-block';
+import PetList from '@/components/pet-list';
+import PetDetails from '@/components/pet-details';
+import Searchform from '@/components/search-form';
 
 export default function Page() {
   return (
@@ -9,13 +13,13 @@ export default function Page() {
         <Stats />
       </div>
 
-      <div>
-        <Searchform />
+      <div className='grid grid-cols-3 grid-row-[45px_1fr]'>
+        <Searchform/>
         <ContentBlock>
-          <PetList />
+          <PetList/>
         </ContentBlock>
         <ContentBlock>
-          <PetDetails />
+          <PetDetails/>
         </ContentBlock>
       </div>
     </main>
