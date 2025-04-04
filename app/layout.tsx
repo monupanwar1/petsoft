@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import '@/app/globals.css'; // Ensure correct import based on your directory structure
 
 const inter = Inter({ subsets: ['latin'] });
 
-
 export const metadata: Metadata = {
-  title: "patsoft pet dayacare software",
-  description: "Take care of people pets responsibly with petsoft",
+  title: 'Patsoft Pet Daycare Software',
+  description: "Take care of people's pets responsibly with Petsoft",
 };
 
 export default function RootLayout({
@@ -17,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-       className={`${inter.className} text-sm text-zinc-900 bg-[#E5E8EC]`}
-      >
+      <body className={`${inter.className} text-sm text-zinc-900 bg-[#E5E8EC]`}>
         {children}
       </body>
     </html>
