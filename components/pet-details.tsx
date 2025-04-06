@@ -1,10 +1,11 @@
 'use client';
 
-import { usePetContext } from '@/lib/hooks'; // Adjust if the path differs
+
+import usePetContext from '@/lib/hook';
 import Image from 'next/image';
 
 export default function PetDetails() {
-  const { selectedPet, handleCheckoutPet } = usePetContext();
+  const { selectedPet } = usePetContext();
 
   return (
     <section className="flex flex-col h-full w-full">
@@ -12,7 +13,9 @@ export default function PetDetails() {
         <EmptyView />
       ) : (
         <>
-          <TopBar pet={selectedPet} handleCheckoutPet={handleCheckoutPet} />
+          <TopBar
+            pet={selectedPet}
+          />
           <OtherInfo pet={selectedPet} />
           <Notes pet={selectedPet} />
         </>
@@ -29,7 +32,7 @@ function EmptyView() {
   );
 }
 
-function TopBar({ pet, handleCheckoutPet }) {
+function TopBar({ pet }) {
   return (
     <div className="flex items-center bg-white px-8 py-5 border-b border-gray-200">
       <Image
@@ -42,21 +45,7 @@ function TopBar({ pet, handleCheckoutPet }) {
 
       <h2 className="text-3xl font-semibold leading-7 ml-5">{pet.name}</h2>
 
-      <div className="ml-auto space-x-2">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded"
-          onClick={() => alert('Edit feature not implemented yet')}
-        >
-          Edit
-        </button>
-
-        <button
-          className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"
-          onClick={() => handleCheckoutPet(pet.id)}
-        >
-          Checkout
-        </button>
-      </div>
+     
     </div>
   );
 }
@@ -81,8 +70,8 @@ function OtherInfo({ pet }) {
 
 function Notes({ pet }) {
   return (
-    <section className="flex-1 bg-white px-7 py-5 rounded-md mb-9 mx-8 border border-gray-200">
-      {pet.notes || <span className="text-zinc-500">No notes available</span>}
+    <section className="flex-1 bg-white px-7 py-5 rounded-md mb-9 mx-8 border border-light">
+      {pet.notes}
     </section>
   );
 }
