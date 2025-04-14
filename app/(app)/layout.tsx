@@ -2,7 +2,8 @@ import AppFooter from '@/components/app-footer';
 import AppHeader from '@/components/app-header';
 import BackgroundPattern from '@/components/background-pattern';
 import PetContextProvider from '../context/pet-context-provider';
-import { pet } from '@/lib/type';
+import { Pet } from '@/lib/type';
+import SearchContextProvider from '../context/search-context-provider';
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
 
@@ -12,19 +13,17 @@ export default async function Layout({ children }: { children: React.ReactNode }
   if (!response.ok) {
     throw new Error('Unable to fetch pets');
   }
-  const data:pet[] = await response.json();
+  const data:Pet[] = await response.json();
   
   return (
-
     <>
       <BackgroundPattern />
       <div className="flex flex-col px-4 max-w-[1050px] mx-auto min-h-screen">
-    
         <AppHeader />
-        <PetContextProvider data={data}  >
-        {children}
-        </PetContextProvider>
-        
+        <SearchContextProvider>
+          <PetContextProvider data={data}>{children}</PetContextProvider>
+        </SearchContextProvider>
+
         <AppFooter />
       </div>
     </>

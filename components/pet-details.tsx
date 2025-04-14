@@ -1,8 +1,16 @@
 'use client';
 
 
-import usePetContext from '@/lib/hook';
+import {usePetContext} from '@/lib/hook';
+import { Pet } from '@/lib/type';
 import Image from 'next/image';
+
+
+type PetProps={
+
+  pet:Pet;
+}
+
 
 export default function PetDetails() {
   const { selectedPet } = usePetContext();
@@ -32,7 +40,7 @@ function EmptyView() {
   );
 }
 
-function TopBar({ pet }) {
+function TopBar({ pet }: PetProps) {
   return (
     <div className="flex items-center bg-white px-8 py-5 border-b border-gray-200">
       <Image
@@ -44,13 +52,11 @@ function TopBar({ pet }) {
       />
 
       <h2 className="text-3xl font-semibold leading-7 ml-5">{pet.name}</h2>
-
-     
     </div>
   );
 }
 
-function OtherInfo({ pet }) {
+function OtherInfo({ pet }: PetProps) {
   return (
     <div className="flex justify-around py-10 px-5 text-center">
       <div>
@@ -68,7 +74,7 @@ function OtherInfo({ pet }) {
   );
 }
 
-function Notes({ pet }) {
+function Notes({ pet }: PetProps) {
   return (
     <section className="flex-1 bg-white px-7 py-5 rounded-md mb-9 mx-8 border border-light">
       {pet.notes}
