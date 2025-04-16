@@ -4,6 +4,7 @@ import ContentBlock from '@/components/content-block';
 import PetList from '@/components/pet-list';
 import PetDetails from '@/components/pet-details';
 import SearchForm from '@/components/search-form';
+import PetButton from '@/components/pet-button';
 
 
 export default async function Page() {
@@ -22,8 +23,11 @@ export default async function Page() {
         </div>
 
         {/* Pet List */}
-        <div className="row-start-2 col-start-1 md:row-start-2 md:row-span-full md:col-start-1 md:col-span-1">
+        <div className="row-start-2 col-start-1 md:row-start-2 md:row-span-full md:col-start-1 md:col-span-1 relative">
           <ContentBlock>
+            <div className='absolute bottom-4 right-4'>
+            <PetButton actionType='add'/>
+            </div>
             <PetList />
           </ContentBlock>
         </div>
