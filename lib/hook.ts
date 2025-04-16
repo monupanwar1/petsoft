@@ -1,3 +1,4 @@
+"use client"
 import { petContext } from "@/app/context/pet-context-provider";
 import { SearchContext } from "@/app/context/search-context-provider";
 import { useContext } from "react";
