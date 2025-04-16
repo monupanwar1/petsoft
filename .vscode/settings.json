@@ -120,5 +120,10 @@
 
   // Auto-close and auto-rename tags for HTML and JSX
   "auto-rename-tag.activationOnLanguage": ["html", "javascriptreact", "typescriptreact"],
-  "auto-close-tag.activationOnLanguage": ["html", "xml", "javascriptreact", "typescriptreact"]
+  "auto-close-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "javascriptreact",
+    "typescriptreact"
+  ]
 }

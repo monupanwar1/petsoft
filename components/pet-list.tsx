@@ -3,6 +3,7 @@
 import  { usePetContext, useSearchContext } from '@/lib/hook';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import PetButton from './pet-button';
 
 export default function PetList() {
   const { pets, selectedPetId, handleChangeSelectPetId } = usePetContext();
@@ -35,6 +36,10 @@ export default function PetList() {
           </button>
         </li>
       ))}
+      <div>
+        <PetButton actionType='add'/>
+      </div>
     </ul>
+    
   );
 }
