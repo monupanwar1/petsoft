@@ -26,7 +26,9 @@ export default async function Page() {
         <div className="row-start-2 col-start-1 md:row-start-2 md:row-span-full md:col-start-1 md:col-span-1 relative">
           <ContentBlock>
             <div className='absolute bottom-4 right-4'>
-            <PetButton actionType='add'/>
+            <PetButton actionType='add'>
+            add
+            </PetButton> 
             </div>
             <PetList />
           </ContentBlock>
