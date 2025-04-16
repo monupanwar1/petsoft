@@ -4,8 +4,17 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
 
-export default function PetForm() {
-  return (
+type PetFormProps = {
+  actionType: 'add' | 'edit';
+  onFormSubmission: () => void;
+};
+
+export default function PetForm({
+  actionType,
+  onFormSubmission,
+}: PetFormProps) {
+    return (
+      
     <form className="flex flex-col space-y-3">
       <div className="space-y-1">
         <Label htmlFor="name">Name</Label>
@@ -36,5 +45,6 @@ export default function PetForm() {
         Submit
       </button>
     </form>
+   
   );
 }

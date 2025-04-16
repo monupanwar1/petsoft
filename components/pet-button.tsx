@@ -1,5 +1,6 @@
-import { PlusIcon } from "lucide-react";
-import { Button } from "./ui/button";
+"use client"
+import { PlusIcon } from 'lucide-react';
+import { Button } from './ui/button';
 import {
   Dialog,
   DialogContent,
@@ -7,37 +8,50 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './ui/dialog';
-
+import { useState } from 'react';
+import PetForm from './pet-form';
 
 type PetButtonProps = {
   actionType: 'add' | 'edit' | 'checkout';
   children: React.ReactNode;
 };
 
-export default function PetButton({ actionType,children }: PetButtonProps) {
-  if(actionType==='add'){
-    return (
-      <div>
-      <Button size="icon">
-        <PlusIcon className="h-6 w-6"/>
-      </Button>
-    </div>
-  );
-}
-  if(actionType==='edit'){
+export default function PetButton({ actionType, children }: PetButtonProps) {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  if (actionType === 'checkout') {
     return (
       <div>
         <Button variant="secondary">{children}</Button>
       </div>
     );
-}
-  if(actionType==='checkout'){
-    return (
-      <div>
-      <Button variant="destructive" >
-        {children}
-      </Button>
-    </div>
+  }
+
+  return (
+    <Dialog 
+    open={isFormOpen} onOpenChange={setIsFormOpen}>
+      <DialogTrigger asChild>
+        {actionType === 'add' ? (
+          <Button size="icon">
+            <PlusIcon className="h-6 w-6" />
+          </Button>
+        ) : (
+          <Button variant="secondary">{children}</Button>
+        )}
+      </DialogTrigger>
+
+      <DialogContent >
+        <DialogHeader>
+          <DialogTitle>
+            {actionType === 'add' ? 'Add a new pet' : 'Edit pet'}
+          </DialogTitle>
+        </DialogHeader>
+
+        <PetForm
+          actionType={actionType}
+          onFormSubmission={() => setIsFormOpen(false)}
+        />
+      </DialogContent>
+    </Dialog>
   );
-}
 }
