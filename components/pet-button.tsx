@@ -22,7 +22,7 @@ export default function PetButton({ actionType, children }: PetButtonProps) {
   if (actionType === 'checkout') {
     return (
       <div>
-        <Button variant="secondary">{children}</Button>
+        <Button variant="destructive">{children}</Button>
       </div>
     );
   }

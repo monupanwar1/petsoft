@@ -43,7 +43,7 @@
   "editor.renderWhitespace": "all",
   "editor.fontFamily": "operator mono lig",
   "editor.fontLigatures": true,
-  "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": true,
   "editor.minimap.enabled": false,
   "editor.fontSize": 14,
   "editor.lineNumbers": "off",
