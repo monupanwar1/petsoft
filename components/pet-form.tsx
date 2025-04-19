@@ -43,8 +43,8 @@ export default function PetForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await addPet(formData); // Call addPet with the form data
-    onFormSubmission(); // Trigger the parent callback after submission
+    await addPet(formData); 
+    onFormSubmission(); 
   };
 
   return (
