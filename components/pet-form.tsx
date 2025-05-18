@@ -1,14 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
-import { addPet } from '@/actions/action'; // Import your addPet action
+import { addPet, editPet } from '@/actions/action';
 
 type PetFormProps = {
   actionType: 'add' | 'edit';
   onFormSubmission: () => void;
+  existingPetData?: FormData;
 };
 
 type FormData = {
@@ -22,6 +23,7 @@ type FormData = {
 export default function PetForm({
   actionType,
   onFormSubmission,
+  existingPetData,
 }: PetFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -31,20 +33,41 @@ export default function PetForm({
     notes: '',
   });
 
+  // Populate form with existing data in edit mode
+  useEffect(() => {
+    if (actionType === 'edit' && existingPetData) {
+      setFormData(existingPetData);
+    }
+  }, [actionType, existingPetData]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: name === 'age' ? Number(value) : value, // Ensure age is a number
+      [name]: name === 'age' ? Number(value) : value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await addPet(formData); 
-    onFormSubmission(); 
+
+    if (actionType === 'add') {
+      const error = await addPet(formData);
+      if (error) {
+        console.log('Not added');
+        return;
+      }
+    } else if (actionType === 'edit') {
+      const error = await editPet(formData);
+      if (error) {
+        console.log('Not edited');
+        return;
+      }
+    }
+
+    onFormSubmission();
   };
 
   return (
